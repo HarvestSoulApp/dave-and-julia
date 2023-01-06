@@ -20,8 +20,15 @@ require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "HarvestSoulApp";
+// 1. KEEP WORKING ON APP.LOCALS TO GIVE USERDETAILS GLOBAL SCOPE IN THE PROJECT
+// app.locals.appTitle = `${capitalize(projectName)}`;
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+// app.use( (req, res, next) => {
+//     app.locals.userDetails = req.session.currentUser; //store user details in app.locals (so that is is available in handlebars)
+//     console.log(app.locals.userDetails)
+//     next();
+// });
+
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
@@ -29,6 +36,8 @@ app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
+
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

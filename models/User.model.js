@@ -10,11 +10,26 @@ const userSchema = new Schema(
       trim: true,
       lowercase: true,
     },
-    passwordHash: {
+    password: {
       type: String,
       required: [true, 'Password is required'],
     },
+
+    username: {
+      type: String,
+      required: false,
+      unique: true,
+      trim: true,
     
+    },
+    profile: {
+      name: String,
+      age: Date,
+      gender: String,
+      genderPreference: {type:[String]}, 
+      occupation: String,
+      hobbies: String
+    },
   
   },
   {
