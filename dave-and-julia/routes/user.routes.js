@@ -28,9 +28,8 @@ router.post('/:id/delete', (req, res, next) => {
     const userId =req.params.id
     User.findByIdAndDelete(userId)
         .then((deleted) => {
-        res.redirect('/')
+        res.redirect('/auth/logout')
     })
 });
 module.exports = router;
-
 
