@@ -139,7 +139,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           //res.render('profile', currentUser)
           //res.send(currentUser._id)
           //const userId = currentUser._id
-          res.render('profile', currentUser)
+          res.render('profile/profile', currentUser)
           //res.send(userId)
           //res.redirect("/"); //ORIGINAL CODE
         })

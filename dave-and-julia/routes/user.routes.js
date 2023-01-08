@@ -1,13 +1,13 @@
 const express = require('express');
 const User = require('../models/User.model');
+const Event = require('../models/User.model');
 const router = express.Router();
-
 
 router.get('/:id/edit', (req, res, next) => {
     const userId = req.params.id
     User.findById(userId)
         .then((theUser) => {
-            res.render('profileEdit', theUser )    
+            res.render('profile/profileEdit', theUser )    
     })
 });
 
@@ -18,8 +18,8 @@ router.post('/:id/edit', (req, res, next) => {
         {firstName, lastName, gender, dob, starSign, occupation, hobbies, lookingFor},
         {new:true} 
         )
-    .then((updatedUser)=>{
-        res.render('profileEdit', updatedUser)
+        .then((updatedUser) => {
+        res.render('profile/profileEdit', updatedUser)
     })
 })
 
