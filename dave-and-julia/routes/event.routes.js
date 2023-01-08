@@ -32,7 +32,8 @@ router.get('/:eventId', (req, res, next) => {
 router.post('/:eventId/delete', (req, res, next) => {
     const eventId = req.params.eventId
     Event.findByIdAndDelete(eventId)
-    res.send('deleted')
+        .then(() => { res.redirect('/event/eventCreate') })
+    
 });
 
 module.exports = router;
