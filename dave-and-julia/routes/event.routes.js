@@ -6,6 +6,14 @@ router.get("/",(req,res,next) => {
     res.send("hello")
 });
 
+router.get('/find', (req, res, next) => {
+    Event.find()
+        .then((events) => {
+            res.render('event/events', { events})
+    })
+})
+
+
 router.get('/eventCreate', (req, res, next) => {
     res.render('event/eventCreate')
 })
